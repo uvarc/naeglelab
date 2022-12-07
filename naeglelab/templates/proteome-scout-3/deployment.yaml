@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: naeglelab-proteome-scout-3-app-deployment
+  namespace: naeglelab
+  labels:
+    app: naeglelab-proteome-scout-3
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: naeglelab-proteome-scout-3
+  template:
+    metadata:
+      labels:
+        app: naeglelab-proteome-scout-3
+    spec:
+      containers:
+      - name: naeglelab-proteome-scout-3-container
+        image: quay.io/naeglelab/proteome-scout-3:{{ .Values.version.NaeglelabProteomeScout3 }}
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1024Mi"
+            cpu: "1000m"
