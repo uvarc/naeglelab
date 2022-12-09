@@ -18,6 +18,19 @@ spec:
       containers:
       - name: naeglelab-proteome-scout-3-container
         image: quay.io/naeglelab/proteome-scout-3:{{ .Values.version.NaeglelabProteomeScout3 }}
+        imagePullPolicy: Always
+        env:
+        - name: FLASK_APP
+          value: "app/__init__.py"
+        - name: FLASK_DEBUG
+          value: "true"
+        - name: LDFLAGS
+          value: "-L/usr/local/opt/openssl@3/lib"
+        - name: CPPFLAGS
+          value: "-I/usr/local/opt/openssl@3/include"
+        envFrom:
+        - secretRef:
+            name: proteome-scout-3-secrets
         ports:
         - containerPort: 80
         resources:
