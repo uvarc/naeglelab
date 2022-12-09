@@ -18,7 +18,7 @@ spec:
           service:
             name: naeglelab-proteome-scout-3-service
             port:
-              number: 5000
+              number: 80
   tls:
       - hosts:
           - naeglelab-proteome-scout-3.pods.uvarc.io

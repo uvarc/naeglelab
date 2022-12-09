@@ -32,7 +32,7 @@ spec:
         - secretRef:
             name: proteome-scout-3-secrets
         ports:
-        - containerPort: 80
+        - containerPort: 5000
         resources:
           requests:
             memory: "512Mi"
