@@ -30,7 +30,7 @@ spec:
           value: "-I/usr/local/opt/openssl@3/include"
         envFrom:
         - secretRef:
-            name: proteome-scout-3-secrets
+            name: proteome-scout-3-test-secrets
         ports:
         - containerPort: 5000
         resources:
