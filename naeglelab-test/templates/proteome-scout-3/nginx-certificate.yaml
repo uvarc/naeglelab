@@ -1,0 +1,14 @@
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "-1"
+#   name: naeglelab-proteome-scout-3-nginx-selfsigned-certificate
+#   namespace: naeglelab
+# spec:
+#   dnsNames:
+#     - naeglelab-proteome-scout-3.pods.uvarc.io
+#   secretName: naeglelab-proteome-scout-3-nginx-tls-ingress-secret
+#   issuerRef:
+#     name: letsencrypt-cluster-issuer
+#     kind: ClusterIssuer 
