@@ -10,6 +10,12 @@ spec:
   selector:
     matchLabels:
       app: naeglelab-test-proteome-scout-3
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   template:
     metadata:
       labels:
