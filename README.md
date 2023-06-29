@@ -13,12 +13,12 @@ metadata:
   name: proteome-scout-3-secrets
   namespace: naeglelab
 data:
-  CELERY_ACCESS_KEY: <echo value | base64>
-  CELERY_BROKER_URL: <echo value | base64>
-  CELERY_RESULT_BACKEND: <echo value | base64>
-  CELERY_SECRET_ACCESS_KEY: <echo value | base64>
-  DATABASE_URL: <echo value | base64>
-  QUEUE_URL: <echo value | base64>
+  CELERY_ACCESS_KEY: <echo -n value | base64>
+  CELERY_BROKER_URL: <echo -n value | base64>
+  CELERY_RESULT_BACKEND: <echo -n value | base64>
+  CELERY_SECRET_ACCESS_KEY: <echo -n value | base64>
+  DATABASE_URL: <echo -n value | base64>
+  QUEUE_URL: <echo -n value | base64>
 type: Opaque
 --------------------
 
