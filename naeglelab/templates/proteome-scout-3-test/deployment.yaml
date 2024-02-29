@@ -1,48 +1,48 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: naeglelab-test-proteome-scout-3-app-deployment
-  namespace: naeglelab
-  labels:
-    app: naeglelab-test-proteome-scout-3
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: naeglelab-test-proteome-scout-3
-  minReadySeconds: 10
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
-  template:
-    metadata:
-      labels:
-        app: naeglelab-test-proteome-scout-3
-    spec:
-      containers:
-      - name: naeglelab-test-proteome-scout-3-container
-        image: quay.io/naeglelab/proteome-scout-3:{{ .Values.version.NaeglelabProteomeScout3Test }}
-        imagePullPolicy: Always
-        env:
-        - name: FLASK_APP
-          value: "app/__init__.py"
-        - name: FLASK_DEBUG
-          value: "true"
-        - name: LDFLAGS
-          value: "-L/usr/local/opt/openssl@3/lib"
-        - name: CPPFLAGS
-          value: "-I/usr/local/opt/openssl@3/include"
-        envFrom:
-        - secretRef:
-            name: proteome-scout-3-test-secrets
-        ports:
-        - containerPort: 5000
-        resources:
-          requests:
-            memory: "1024Mi"
-            cpu: "1000m"
-          limits:
-            memory: "2048Mi"
-            cpu: "2000m"
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: naeglelab-test-proteome-scout-3-app-deployment
+#   namespace: naeglelab
+#   labels:
+#     app: naeglelab-test-proteome-scout-3
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: naeglelab-test-proteome-scout-3
+#   minReadySeconds: 10
+#   strategy:
+#     type: RollingUpdate
+#     rollingUpdate:
+#       maxUnavailable: 1
+#       maxSurge: 1
+#   template:
+#     metadata:
+#       labels:
+#         app: naeglelab-test-proteome-scout-3
+#     spec:
+#       containers:
+#       - name: naeglelab-test-proteome-scout-3-container
+#         image: quay.io/naeglelab/proteome-scout-3:{{ .Values.version.NaeglelabProteomeScout3Test }}
+#         imagePullPolicy: Always
+#         env:
+#         - name: FLASK_APP
+#           value: "app/__init__.py"
+#         - name: FLASK_DEBUG
+#           value: "true"
+#         - name: LDFLAGS
+#           value: "-L/usr/local/opt/openssl@3/lib"
+#         - name: CPPFLAGS
+#           value: "-I/usr/local/opt/openssl@3/include"
+#         envFrom:
+#         - secretRef:
+#             name: proteome-scout-3-test-secrets
+#         ports:
+#         - containerPort: 5000
+#         resources:
+#           requests:
+#             memory: "1024Mi"
+#             cpu: "1000m"
+#           limits:
+#             memory: "2048Mi"
+#             cpu: "2000m"
