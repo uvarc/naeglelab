@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: naeglelab-test-proteome-scout-3-app-deployment
-  namespace: naeglelab-test
+  namespace: naeglelab
   labels:
     app: naeglelab-test-proteome-scout-3
 spec:
@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: naeglelab-test-proteome-scout-3-container
-        image: quay.io/naeglelab/proteome-scout-3:{{ .Values.version.NaeglelabProteomeScout3 }}
+        image: quay.io/naeglelab/proteome-scout-3:{{ .Values.version.NaeglelabProteomeScout3Test }}
         imagePullPolicy: Always
         env:
         - name: FLASK_APP

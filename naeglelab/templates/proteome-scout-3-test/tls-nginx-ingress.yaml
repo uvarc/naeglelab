@@ -7,7 +7,7 @@
 #     acme.cert-manager.io/http01-edit-in-place: "true"
 #     cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
 #   name: naeglelab-test-proteome-scout-3-tls-nginx-ingress
-#   namespace: naeglelab-test
+#   namespace: naeglelab
 # spec:
 #   rules:
 #   - host: naeglelab-test-proteome-scout-3.pods.uvarc.io
