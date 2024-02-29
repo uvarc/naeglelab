@@ -6,7 +6,7 @@ metadata:
   labels:
     app: naeglelab-test-proteome-scout-3
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: naeglelab-test-proteome-scout-3
@@ -41,8 +41,8 @@ spec:
         - containerPort: 5000
         resources:
           requests:
-            memory: "512Mi"
-            cpu: "500m"
-          limits:
             memory: "1024Mi"
             cpu: "1000m"
+          limits:
+            memory: "2048Mi"
+            cpu: "2000m"
