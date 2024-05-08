@@ -28,6 +28,10 @@ spec:
           value: "-L/usr/local/opt/openssl@3/lib"
         - name: CPPFLAGS
           value: "-I/usr/local/opt/openssl@3/include"
+        - name: SMTP_HOST
+          value: "out.mail.virginia.edu"
+        - name: SMTP_PORT
+          value: "25"
         envFrom:
         - secretRef:
             name: proteome-scout-3-secrets
