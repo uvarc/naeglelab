@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: naeglelab-proteome-scout-prod-service
+  namespace: naeglelab
+spec:
+  selector:
+    app: naeglelab-proteome-scout-prod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
