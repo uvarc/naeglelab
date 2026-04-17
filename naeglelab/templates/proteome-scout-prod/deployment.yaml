@@ -6,7 +6,7 @@ metadata:
   labels:
     app: naeglelab-proteome-scout-prod
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: naeglelab-proteome-scout-prod
