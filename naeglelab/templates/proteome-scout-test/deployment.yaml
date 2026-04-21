@@ -15,8 +15,6 @@ spec:
       labels:
         app: naeglelab-proteome-scout-test
     spec:
-      securityContext:
-        fsGroup: 1000
       containers:
       - name: naeglelab-proteome-scout-test-container
         image: quay.io/naeglelab/proteome-scout-3:{{ .Values.version.NaeglelabProteomeScout3Test }}
@@ -26,10 +24,6 @@ spec:
           value: "app/__init__.py"
         - name: FLASK_DEBUG
           value: "false"
-        - name: LDFLAGS
-          value: "-L/usr/local/opt/openssl@3/lib"
-        - name: CPPFLAGS
-          value: "-I/usr/local/opt/openssl@3/include"
         - name: SMTP_HOST
           value: "out.mail.virginia.edu"
         - name: SMTP_PORT
@@ -43,7 +37,7 @@ spec:
         - containerPort: 5000
         volumeMounts:
         - name: proteomescout-data
-          mountPath: /Volumes/naegle_lab/ProteomeScout-v4/CURRENT
+          mountPath: /Volumes/naegle_lab/ProteomeScout-v4/CURRENT/ProteomeScout_Dataset
           readOnly: true
         resources:
           requests:

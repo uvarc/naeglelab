@@ -4,10 +4,10 @@ metadata:
   name: naeglelab-proteome-scout-test-pvc
   namespace: naeglelab
 spec:
+  storageClassName: naeglelab-proteome-scout-test-sc
   accessModes:
-    - ReadWriteMany
-  storageClassName: csi-cephfs-sc
+    - ReadOnlyMany
   resources:
     requests:
-      storage: 1Gi
+      storage: 10Gi
   volumeName: naeglelab-proteome-scout-test-pv
