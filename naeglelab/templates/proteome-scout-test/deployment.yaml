@@ -1,52 +1,52 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: naeglelab-proteome-scout-test-app-deployment
-#   namespace: naeglelab
-#   labels:
-#     app: naeglelab-proteome-scout-test
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: naeglelab-proteome-scout-test
-#   template:
-#     metadata:
-#       labels:
-#         app: naeglelab-proteome-scout-test
-#     spec:
-#       containers:
-#       - name: naeglelab-proteome-scout-test-container
-#         image: quay.io/naeglelab/proteome-scout-3:{{ .Values.version.NaeglelabProteomeScout3Test }}
-#         imagePullPolicy: Always
-#         env:
-#         - name: FLASK_APP
-#           value: "app/__init__.py"
-#         - name: FLASK_DEBUG
-#           value: "false"
-#         - name: SMTP_HOST
-#           value: "out.mail.virginia.edu"
-#         - name: SMTP_PORT
-#           value: "25"
-#         - name: PROTEOMESCOUT_DATA_HOST_DIR
-#           value: "/Volumes/naegle_lab/ProteomeScout-v4/CURRENT/ProteomeScout_Dataset/naegle_lab"
-#         envFrom:
-#         - secretRef:
-#             name: proteome-scout-3-secrets-test
-#         ports:
-#         - containerPort: 5000
-#         volumeMounts:
-#         - name: proteomescout-data
-#           mountPath: /Volumes/naegle_lab/ProteomeScout-v4/CURRENT/ProteomeScout_Dataset
-#           readOnly: true
-#         resources:
-#           requests:
-#             memory: "512Mi"
-#             cpu: "500m"
-#           limits:
-#             memory: "1024Mi"
-#             cpu: "1000m"
-#       volumes:
-#       - name: proteomescout-data
-#         persistentVolumeClaim:
-#           claimName: naeglelab-proteome-scout-test-pvc
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: naeglelab-proteome-scout-test-app-deployment
+  namespace: naeglelab
+  labels:
+    app: naeglelab-proteome-scout-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: naeglelab-proteome-scout-test
+  template:
+    metadata:
+      labels:
+        app: naeglelab-proteome-scout-test
+    spec:
+      containers:
+      - name: naeglelab-proteome-scout-test-container
+        image: quay.io/naeglelab/proteome-scout-3:{{ .Values.version.NaeglelabProteomeScout3Test }}
+        imagePullPolicy: Always
+        env:
+        - name: FLASK_APP
+          value: "app/__init__.py"
+        - name: FLASK_DEBUG
+          value: "false"
+        - name: SMTP_HOST
+          value: "out.mail.virginia.edu"
+        - name: SMTP_PORT
+          value: "25"
+        - name: PROTEOMESCOUT_DATA_HOST_DIR
+          value: "/Volumes/naegle_lab/ProteomeScout-v4/CURRENT/ProteomeScout_Dataset/naegle_lab"
+        envFrom:
+        - secretRef:
+            name: proteome-scout-3-secrets-test
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - name: proteomescout-data
+          mountPath: /Volumes/naegle_lab/ProteomeScout-v4/CURRENT/ProteomeScout_Dataset
+          readOnly: true
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1024Mi"
+            cpu: "1000m"
+      volumes:
+      - name: proteomescout-data
+        persistentVolumeClaim:
+          claimName: naeglelab-proteome-scout-test-pvc
