@@ -1,3 +1,7 @@
 version:
   NaeglelabProteomeScout3: 'latest'
   NaeglelabProteomeScout3Test: 'test'
+
+  # NEW (for v4)
+  NaeglelabProteomeScout4Prod: 'main'
+  NaeglelabProteomeScout4Test: 'dev'

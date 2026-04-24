@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: naeglelab-proteome-scout-prod-container
-        image: quay.io/naeglelab/proteome-scout-3:{{ .Values.version.NaeglelabProteomeScout3 }}
+        image: quay.io/naeglelab/proteome-scout-4:{{ .Values.version.NaeglelabProteomeScout4Test }}
         imagePullPolicy: Always
         env:
         - name: FLASK_APP
