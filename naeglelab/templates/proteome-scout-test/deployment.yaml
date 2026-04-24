@@ -28,13 +28,13 @@ spec:
           value: "out.mail.virginia.edu"
         - name: SMTP_PORT
           value: "25"
-        - name: PROTEOMESCOUT_DATA_HOST_DIR
+        - name: PROTEOMESCOUT_DATA_DIR
           value: "/Volumes/naegle_lab/ProteomeScout-v4/CURRENT/ProteomeScout_Dataset"
         envFrom:
         - secretRef:
             name: proteome-scout-3-secrets-test
         ports:
-        - containerPort: 5000
+        - containerPort: 5001
         volumeMounts:
         - name: proteomescout-data
           mountPath: /Volumes/naegle_lab/ProteomeScout-v4/CURRENT/ProteomeScout_Dataset
