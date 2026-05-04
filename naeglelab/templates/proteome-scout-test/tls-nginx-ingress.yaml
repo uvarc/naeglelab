@@ -1,0 +1,26 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: naeglelab-proteome-scout-test-uvarc-ingress
+#   namespace: naeglelab
+#   annotations:
+#     kubernetes.io/ingress.class: nginx
+#     nginx.ingress.kubernetes.io/rewrite-target: /
+#     acme.cert-manager.io/http01-edit-in-place: "true"
+#     cert-manager.io/cluster-issuer: rc-hpc-sectigo-clusterissuer
+# spec:
+#   rules:
+#   - host: naeglelab-proteome-scout-test.pods.uvarc.io
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: naeglelab-proteome-scout-test-service
+#             port:
+#               number: 80
+#   tls:
+#   - hosts:
+#     - naeglelab-proteome-scout-test.pods.uvarc.io
+#     secretName: naeglelab-proteome-scout-test-tls
